@@ -2,7 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 DATASET_PATH = './csv/'
+IMAGE_PATH = './img/'
+
 bar_df = pd.read_csv(DATASET_PATH + "bar_assignment.csv")
+bar_df.tail()
 
 bar_df["COUNT"] = bar_df["COUNT"].map({1: "Yes", 0: "No"})
 
@@ -28,5 +31,6 @@ for container in ax.containers:
     ax.bar_label(container, label_type="center", fontsize=10, color="white")
 
 plt.tight_layout()
+plt.savefig(IMAGE_PATH + 'bar_graph.png')
 
 plt.show()
